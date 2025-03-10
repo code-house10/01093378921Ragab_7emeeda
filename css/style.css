@@ -5,7 +5,20 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
-</style>
+
+/* Apply Cairo font to the whole body */
+body {
+    font-family: 'Cairo', sans-serif;
+}
+
+/* Optional: You can apply it to specific elements */
+h1 {
+    font-family: 'Cairo', sans-serif;
+}
+
+p {
+    font-family: 'Cairo', sans-serif;
+}
 
 
 
@@ -2244,20 +2257,4 @@ a:focus {
 
 
 
-html,body {
-     
-     overflow-x: hidden;
-}
-/* Apply Cairo font to the whole body */
-body {
-    font-family: 'Cairo', sans-serif;
-}
-
-/* Optional: You can apply it to specific elements */
-h1 {
-    font-family: 'Cairo', sans-serif;
-}
-
-p {
-    font-family: 'Cairo', sans-serif;
-}
+</style>
