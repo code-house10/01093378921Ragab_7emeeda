@@ -1,0 +1,789 @@
+<html lang="ar" dir="rtl"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة أمازون إكسبريس لنقل العفش - نقل آمن وسريع مع نصائح ذكية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0A1747',
+                        gold: '#D4AF37',
+                        lightgold: '#F0E68C', // Lighter gold for modal
+                    },
+                    fontFamily: {
+                        'tajawal': ['Tajawal', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(10, 23, 71, 0.8), rgba(10, 23, 71, 0.8)), url("https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/carousel-1.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        .service-card {
+            transition: all 0.3s ease;
+            display: flex; 
+            flex-direction: column; 
+            height: 100%; 
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        .service-card .p-6 { 
+            flex-grow: 1;
+        }
+        .stats-item {
+            position: relative;
+        }
+        .stats-item::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 0;
+            height: 60%;
+            width: 1px;
+            background-color: rgba(212, 175, 55, 0.3);
+        }
+        .stats-item:first-child::after {
+            display: none;
+        }
+        .video-section {
+            background-image: linear-gradient(rgba(10, 23, 71, 0.8), rgba(10, 23, 71, 0.8)), url("https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/last.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        .play-button {
+            transition: all 0.3s ease;
+        }
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+        }
+        .floating-call-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+        .gallery-img {
+            transition: all 0.3s ease;
+            overflow: hidden;
+            display: flex; 
+            flex-direction: column; 
+            height: 100%; 
+        }
+        .gallery-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .gallery-img img.gallery-image-class { 
+            width: 100%;
+            height: 250px; 
+            object-fit: cover;
+            flex-shrink: 0; 
+        }
+        .gallery-img .p-4 { 
+            flex-grow: 1;
+        }
+        .gallery-img:hover img.gallery-image-class {
+            transform: scale(1.1);
+        }
+        .mobile-menu {
+            transition: all 0.3s ease;
+            transform: translateX(100%);
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        .logo-spin {
+            animation: spin 20s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @media (max-width: 768px) {
+            .stats-item::after {
+                display: none;
+            }
+            .floating-call-btn {
+                bottom: 20px;
+                left: 20px;
+            }
+            .gallery-img img.gallery-image-class {
+                height: 200px; 
+            }
+        }
+        .service-card img.service-icon-img {
+            width: 100%;
+            height: 12rem; /* h-48 */
+            object-fit: cover;
+            border-top-left-radius: 0.5rem; /* rounded-t-lg */
+            border-top-right-radius: 0.5rem; /* rounded-t-lg */
+            flex-shrink: 0; 
+        }
+        .additional-service-card img {
+            width: 100%;
+            height: 10rem; /* h-40 */
+            object-fit: cover;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            margin-bottom: 1rem; /* mb-4 */
+             flex-shrink: 0; 
+        }
+         .additional-service-card {
+            display: flex; 
+            flex-direction: column; 
+            height: 100%; 
+        }
+        .additional-service-card .p-6 {
+             flex-grow: 1;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 25px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            position: relative;
+            color: #333; /* Dark text for readability */
+        }
+        .modal-header {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h2 {
+            color: #0A1747; /* Navy color for header */
+            font-size: 1.5rem;
+        }
+        .modal-body {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            line-height: 1.8;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        .modal-footer {
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            text-align: left;
+        }
+        .close-button {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+        }
+        .loading-spinner {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #D4AF37; /* Gold */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin-loader 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin-loader {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .gemini-button {
+            background-color: #0A1747; /* Navy */
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 0.75rem; /* mt-3 */
+        }
+        .gemini-button:hover {
+            background-color: #D4AF37; /* Gold */
+            color: #0A1747; /* Navy */
+        }
+
+    </style>
+</head>
+<body class="bg-white">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="w-16 h-16 mr-3 relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="logo-spin">
+                            <circle cx="50" cy="50" r="45" fill="#0A1747"></circle>
+                            <circle cx="50" cy="50" r="35" fill="#D4AF37"></circle>
+                            <circle cx="50" cy="50" r="25" fill="#0A1747"></circle>
+                            <path d="M50 15 L55 30 L70 30 L60 40 L65 55 L50 45 L35 55 L40 40 L30 30 L45 30 Z" fill="#D4AF37"></path>
+                            <text x="50" y="54" font-family="Arial" font-size="10" text-anchor="middle" fill="white" font-weight="bold">أمازون</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl md:text-2xl font-bold text-navy">شركة أمازون إكسبريس</h1>
+                        <p class="text-sm md:text-base text-gray-600">786821 📞</p>
+                    </div>
+                </div>
+                
+                <nav class="hidden md:block">
+                    <div class="bg-navy rounded-lg p-2 flex flex-wrap justify-center">
+                        <a href="#home" class="text-white px-3 py-1 hover:text-gold transition">الرئيسية</a>
+                        <a href="#about" class="text-white px-3 py-1 hover:text-gold transition">عن الشركة</a>
+                        <a href="#services" class="text-white px-3 py-1 hover:text-gold transition">خدماتنا</a>
+                        <a href="#gallery" class="text-white px-3 py-1 hover:text-gold transition">معرض الصور</a>
+                        <a href="#clients" class="text-white px-3 py-1 hover:text-gold transition">عملاؤنا</a>
+                        <a href="#contact" class="text-white px-3 py-1 hover:text-gold transition">اتصل بنا</a>
+                        <button class="bg-gold text-navy font-bold px-4 py-1 rounded-lg mr-2 hover:bg-yellow-500 transition call-now-btn">اتصل الآن</button>
+                    </div>
+                </nav>
+                
+                <button class="md:hidden text-navy focus:outline-none" id="mobile-menu-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div class="mobile-menu fixed top-0 right-0 h-full w-3/4 bg-navy z-50 p-6 shadow-lg" id="mobile-menu">
+            <div class="flex justify-between items-center mb-8">
+                <h3 class="text-xl font-bold text-gold">القائمة</h3>
+                <button class="text-white focus:outline-none" id="close-menu-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-4">
+                <a href="#home" class="text-white hover:text-gold transition py-2 border-b border-gray-700">الرئيسية</a>
+                <a href="#about" class="text-white hover:text-gold transition py-2 border-b border-gray-700">عن الشركة</a>
+                <a href="#services" class="text-white hover:text-gold transition py-2 border-b border-gray-700">خدماتنا</a>
+                <a href="#gallery" class="text-white hover:text-gold transition py-2 border-b border-gray-700">معرض الصور</a>
+                <a href="#clients" class="text-white hover:text-gold transition py-2 border-b border-gray-700">عملاؤنا</a>
+                <a href="#contact" class="text-white hover:text-gold transition py-2 border-b border-gray-700">اتصل بنا</a>
+                <button class="bg-gold text-navy font-bold px-4 py-3 rounded-lg mt-4 hover:bg-yellow-500 transition call-now-btn">اتصل الآن</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="floating-call-btn bg-gold rounded-full p-4 shadow-lg cursor-pointer call-now-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+        </svg>
+    </div>
+
+    <section id="home" class="hero-section py-16 md:py-20 text-white">
+        <div class="container mx-auto px-4 flex flex-col items-center text-center">
+            <div class="w-24 h-24 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="#D4AF37"></circle>
+                    <circle cx="50" cy="50" r="35" fill="#0A1747"></circle>
+                    <path d="M50 20 L60 40 L82 40 L65 55 L70 75 L50 62 L30 75 L35 55 L18 40 L40 40 Z" fill="#D4AF37"></path>
+                    <text x="50" y="54" font-family="Arial" font-size="12" text-anchor="middle" fill="white" font-weight="bold">أمازون</text>
+                </svg>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">نقل عفش بأمان وسرعة وراحة تامة</h2>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl">شركة أمازون إكسبريس، اختيارك الأمثل لنقل العفش بضمان سلامته في جميع أنحاء المملكة. نقدم خدمة نقل متكاملة تشمل الفك والتركيب، التغليف الاحترافي، ونش رفع للأدوار العالية، وسيارات مجهزة. خبرة تمتد لأكثر من 15 عاماً، أسعار تنافسية وخدمة متاحة على مدار 24 ساعة لراحتكم.</p>
+            <button class="bg-gold text-navy font-bold text-xl px-8 py-3 rounded-lg hover:bg-yellow-500 transition">احصل على عرض سعر</button>
+        </div>
+    </section>
+
+    <section class="py-12 md:py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg text-center">
+                    <div class="bg-navy inline-block p-4 rounded-full mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-10 md:w-10 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-navy mb-2">خدمة 24 ساعة</h3>
+                    <p class="text-gray-600">نعمل على مدار الساعة لنلبي احتياجات نقل العفش الخاصة بكم في أي وقت، مع ضمان الاستجابة السريعة.</p>
+                </div>
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg text-center">
+                    <div class="bg-navy inline-block p-4 rounded-full mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-10 md:w-10 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-navy mb-2">ضمان شامل على النقل</h3>
+                    <p class="text-gray-600">نقدم ضمان شامل على جميع خدمات نقل العفش، لتنتقل وأنت مطمئن على سلامة ممتلكاتك.</p>
+                </div>
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg text-center">
+                    <div class="bg-navy inline-block p-4 rounded-full mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-10 md:w-10 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-navy mb-2">عمالة فنية مدربة</h3>
+                    <p class="text-gray-600">فريق عمل محترف ومدرب على أعلى مستوى للتعامل مع جميع أنواع الأثاث بعناية فائقة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/about.jpg" alt="عن شركة أمازون إكسبريس لنقل العفش" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-1/2 md:pr-8">
+                    <h2 class="text-2xl md:text-3xl font-bold text-navy mb-6">لماذا تختار شركة أمازون إكسبريس لنقل عفشك؟</h2>
+                    <p class="text-gray-700 mb-4">تعد شركتنا من أفضل شركات نقل العفش في المنطقة، حيث نتمتع بخبرة تزيد عن 15 عامًا في مجال نقل وتخزين الأثاث. على مر السنين، طورنا أساليب عمل متقدمة وفعالة تضمن إتمام عملية النقل بسلاسة ودقة عالية. يتكون فريق العمل لدينا من محترفين مدربين على أعلى مستوى، يتعاملون مع جميع أنواع الأثاث والمقتنيات الثمينة بحرفية تامة. نحن نفخر بسجلنا الحافل بالتقييمات الإيجابية من آلاف العملاء الراضين الذين وثقوا بنا لنقل أثاثهم بأمان. تلتزم شركتنا بتقديم خدمة استثنائية بأسعار تنافسية، مع ضمان شامل على سلامة جميع المنقولات.</p>
+                    <p class="text-gray-700 mb-6">اختيار شركات نقل العفش المتخصصة مثل أمازون إكسبريس هو استثمار ذكي يوفر عليك الوقت والجهد ويقلل مخاطر تلف الأثاث. نحن نوفر المعدات المتطورة، السيارات المجهزة، وفريق عمل مدرب للتعامل مع كافة تحديات النقل، مع تقديم ضمانات وتأمينات لحماية ممتلكاتك.</p>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-navy rounded-full p-2 ml-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gold" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <p class="font-medium text-gray-700">أكثر من 15 سنوات خبرة في نقل العفش بأمان تام.</p>
+                    </div>
+                     <div class="flex items-center mb-6">
+                        <div class="bg-navy rounded-full p-2 ml-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gold" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <p class="font-medium text-gray-700">نقل عفش بدون خدوش أو كسور مع تغليف احترافي.</p>
+                    </div>
+                    <button class="bg-gold text-navy font-bold px-6 py-3 rounded-lg hover:bg-yellow-500 transition">احجز الآن لنقل أثاثك</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 md:py-16 bg-navy text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="stats-item text-center px-4">
+                    <div class="text-gold text-3xl md:text-4xl font-bold mb-2">2500+</div>
+                    <p class="text-base md:text-lg">عملية نقل ناجحة</p>
+                </div>
+                <div class="stats-item text-center px-4">
+                    <div class="text-gold text-3xl md:text-4xl font-bold mb-2">2300+</div>
+                    <p class="text-base md:text-lg">عميل راضٍ تمامًا</p>
+                </div>
+                <div class="stats-item text-center px-4">
+                    <div class="text-gold text-3xl md:text-4xl font-bold mb-2">90%</div>
+                    <p class="text-base md:text-lg">عملاء يوصون بنا</p>
+                </div>
+                <div class="stats-item text-center px-4">
+                    <div class="text-gold text-3xl md:text-4xl font-bold mb-2">75+</div>
+                    <p class="text-base md:text-lg">فني وعامل محترف</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-12 md:py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-navy text-center mb-4">خدمات نقل العفش المتكاملة التي نقدمها</h2>
+            <p class="text-center text-gray-700 mb-8 md:mb-12 max-w-2xl mx-auto">تقدم شركتنا خدمات نقل العفش المتكاملة بأعلى مستويات الاحترافية والأمان. نحن نتفهم أن عملية نقل الأثاث تمثل مصدر قلق كبير للعملاء، لذلك نوفر فريقًا متخصصًا يتعامل مع كل قطعة أثاث بعناية فائقة لضمان نقل عفش بدون خدوش أو كسور.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/service-1.jpg" alt="فك وتركيب الأثاث" class="service-icon-img">
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg md:text-xl font-bold text-navy mb-2">فك وتركيب الأثاث</h3>
+                        <p class="text-gray-600">خدمة فك وتركيب جميع أنواع الأثاث والمكيفات بدقة واحترافية عالية، مع ضمان التركيب الصحيح والسريع.</p>
+                    </div>
+                </div>
+                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
+                     <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/service-2.jpg" alt="سيارات نقل مجهزة" class="service-icon-img">
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg md:text-xl font-bold text-navy mb-2">سيارات نقل مجهزة</h3>
+                        <p class="text-gray-600">أسطول من السيارات المجهزة والمغلقة خصيصاً لنقل العفش بأمان تام لجميع المسافات.</p>
+                    </div>
+                </div>
+                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/service-3.jpg" alt="ونش رفع العفش" class="service-icon-img">
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg md:text-xl font-bold text-navy mb-2">ونش رفع العفش</h3>
+                        <p class="text-gray-600">أحدث أوناش رفع العفش للأدوار العليا والمباني الشاهقة، لضمان نقل آمن وسريع لأثاثك.</p>
+                    </div>
+                </div>
+                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
+                     <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/service-4.jpg" alt="تغليف احترافي للعفش" class="service-icon-img">
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg md:text-xl font-bold text-navy mb-2">تغليف احترافي للعفش</h3>
+                        <p class="text-gray-600">تغليف احترافي باستخدام أجود المواد لجميع أنواع الأثاث والمقتنيات الثمينة لحمايتها من أي ضرر.</p>
+                        <button id="getPackingTips" class="gemini-button">✨ اقتراح نصائح لتغليف أفضل</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-navy text-center mb-8 md:mb-12">شاهد جودة عملنا - معرض الصور</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-img rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/carousel-2.jpg" alt="أسطول سيارات النقل الحديثة" class="gallery-image-class">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-navy">أسطول سيارات النقل</h3>
+                        <p class="text-gray-600">سيارات حديثة ومجهزة خصيصاً لنقل العفش بأمان تام لمختلف المناطق.</p>
+                    </div>
+                </div>
+                <div class="gallery-img rounded-lg overflow-hidden shadow-lg">
+                     <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/carousel-11.jpg" alt="تغليف الأثاث بعناية فائقة" class="gallery-image-class">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-navy">تغليف الأثاث بعناية</h3>
+                        <p class="text-gray-600">تغليف احترافي لكل قطعة أثاث لضمان الحماية الكاملة أثناء النقل.</p>
+                    </div>
+                </div>
+                <div class="gallery-img rounded-lg overflow-hidden shadow-lg">
+                     <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/service-11.jpg" alt="فك وتركيب الأثاث باحترافية" class="gallery-image-class">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-navy">فك وتركيب الأثاث</h3>
+                        <p class="text-gray-600">فنيون متخصصون في فك وتركيب جميع أنواع الأثاث بدقة وسرعة.</p>
+                    </div>
+                </div>
+                <div class="gallery-img rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/team-1.jpg" alt="فريق عمل شركة أمازون إكسبريس" class="gallery-image-class">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-navy">فريق عملنا المحترف</h3>
+                        <p class="text-gray-600">فريق عمل مدرب ومجهز بأحدث الأدوات لتقديم أفضل خدمة نقل عفش.</p>
+                    </div>
+                </div>
+                <div class="gallery-img rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/service-3.jpg" alt="خدمة ونش رفع العفش للأدوار العليا" class="gallery-image-class">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-navy">خدمة ونش رفع العفش</h3>
+                        <p class="text-gray-600">استخدام أحدث أوناش الرفع لنقل الأثاث بأمان للأدوار المرتفعة.</p>
+                    </div>
+                </div>
+                <div class="gallery-img rounded-lg overflow-hidden shadow-lg">
+                     <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/service-55.jpg" alt="تركيب وصيانة المكيفات" class="gallery-image-class">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-navy">تركيب وصيانة التكييفات</h3>
+                        <p class="text-gray-600">خدمات فك وتركيب وصيانة جميع أنواع التكييفات ضمن عملية النقل.</p>
+                    </div>
+                </div>
+                 <div class="gallery-img rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/team-2.jpg" alt="نقل المكاتب والشركات" class="gallery-image-class">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-navy">نقل المكاتب والشركات</h3>
+                        <p class="text-gray-600">خبرة في نقل أثاث المكاتب والشركات بسرعة وكفاءة لضمان استمرارية عملك.</p>
+                    </div>
+                </div>
+                <div class="gallery-img rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/carousel-11.jpg" alt="خدمات تخزين الأثاث الآمنة" class="gallery-image-class">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-navy">خدمات التخزين الآمن</h3>
+                        <p class="text-gray-600">نوفر حلول تخزين آمنة ومؤمنة لأثاثك ومقتنياتك لأي فترة تحتاجها.</p>
+                    </div>
+                </div>
+                <div class="gallery-img rounded-lg overflow-hidden shadow-lg">
+                   <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/last.jpg" alt="النقل الدولي والشحن" class="gallery-image-class">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-navy">النقل الدولي والشحن</h3>
+                        <p class="text-gray-600">خدمات شحن ونقل دولي للأثاث والممتلكات مع تيسير كافة الإجراءات.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col justify-center items-center text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">شاهد كيف نعمل باحترافية!</h2>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-xl">نحن ملتزمون بتقديم تجربة نقل عفش لا مثيل لها. اضغط لتشغيل الفيديو واستكشاف المزيد عن خدماتنا المتميزة.</p>
+            <button class="play-button bg-gold rounded-full p-6 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 md:h-16 md:w-16 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <section class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-navy text-center mb-8 md:mb-12">خدمات إضافية لراحتك الكاملة</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="additional-service-card bg-gray-50 p-6 rounded-lg shadow-lg text-center">
+                    <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/service-55.jpg" alt="فك وتركيب التكييفات">
+                    <h3 class="text-lg md:text-xl font-bold text-navy mb-2">فك وتركيب التكييفات</h3>
+                    <p class="text-gray-600">متخصصون في فك وتركيب وصيانة جميع أنواع التكييفات بكفاءة عالية، لضمان راحتكم في منزلكم الجديد.</p>
+                </div>
+                <div class="additional-service-card bg-gray-50 p-6 rounded-lg shadow-lg text-center">
+                     <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/team-4.jpg" alt="فنيون متخصصون للتركيبات">
+                    <h3 class="text-lg md:text-xl font-bold text-navy mb-2">فنيون متخصصون للتركيبات</h3>
+                    <p class="text-gray-600">نوفر فنيين متخصصين في فك وتركيب جميع أنواع الأثاث، الستائر، المطابخ، والأجهزة بدقة واحترافية.</p>
+                </div>
+                <div class="additional-service-card bg-gray-50 p-6 rounded-lg shadow-lg text-center">
+                    <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/service-5.jpg" alt="نقل آمن للمقتنيات الثمينة">
+                    <h3 class="text-lg md:text-xl font-bold text-navy mb-2">نقل آمن للمقتنيات الثمينة</h3>
+                    <p class="text-gray-600">نقل آمن لجميع المقتنيات الثمينة والقطع الحساسة مع تغليف خاص وعناية فائقة، وبأسعار معقولة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gemini-features" class="py-12 md:py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-navy text-center mb-4">✨ خطط لانتقالك بسهولة مع مساعد أمازون الذكي</h2>
+            <p class="text-center text-gray-700 mb-8 md:mb-12 max-w-2xl mx-auto">استفد من قوة الذكاء الاصطناعي للحصول على مساعدة مخصصة لعملية انتقالك. جرب أدواتنا الجديدة المدعومة من Gemini API.</p>
+            <div class="flex justify-center">
+                <button id="getMovingChecklist" class="gemini-button text-lg px-6 py-3">✨ إنشاء قائمة مهام الانتقال</button>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="clients" class="py-12 md:py-16 bg-white"> <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-navy text-center mb-8 md:mb-12">شهادات عملائنا الكرام</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg relative"> <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/quote.png" alt="Quote" class="w-8 h-8 absolute top-4 right-4 opacity-20">
+                    <div class="flex items-center mb-4">
+                         <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/testimonial-1.jpg" alt="العميل محمد السيد" class="h-16 w-16 rounded-full ml-4 shadow-md object-cover">
+                        <div>
+                            <h4 class="font-bold text-navy">محمد السيد</h4>
+                            <p class="text-gray-600 text-sm">الرياض</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"خدمة نقل عفش ممتازة وفريق عمل محترف بمعنى الكلمة. قاموا بنقل أثاث منزلي بكل عناية واحترافية، وبأسعار تنافسية. أنصح بشدة بالتعامل مع شركة أمازون إكسبريس."</p>
+                    <div class="flex mt-3 text-gold">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg relative"> <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/quote.png" alt="Quote" class="w-8 h-8 absolute top-4 right-4 opacity-20">
+                    <div class="flex items-center mb-4">
+                         <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/testimonial-2.jpg" alt="العميلة نورة العتيبي" class="h-16 w-16 rounded-full ml-4 shadow-md object-cover">
+                        <div>
+                            <h4 class="font-bold text-navy">نورة العتيبي</h4>
+                            <p class="text-gray-600 text-sm">جدة</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"شركة لنقل العفش توفر خدمة متكاملة بأسعار تنافسية. ضمان سلامة الأثاث مع التوصيل السريع. تعاملت معهم لنقل أثاث منزلي الجديد، وكانت التجربة رائعة من حيث الالتزام بالموعد والاحترافية في العمل."</p>
+                    <div class="flex mt-3 text-gold">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                </div>
+                 <div class="bg-gray-50 p-6 rounded-lg shadow-lg relative md:col-span-1 lg:col-span-1 sm:col-span-2 mx-auto"> <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/quote.png" alt="Quote" class="w-8 h-8 absolute top-4 right-4 opacity-20">
+                    <div class="flex items-center mb-4">
+                         <img src="https://raw.githubusercontent.com/code-house10/01093378921Ragab_7emeeda/main/img/team-4.jpg" alt="العميل أحمد خالد" class="h-16 w-16 rounded-full ml-4 shadow-md object-cover">
+                        <div>
+                            <h4 class="font-bold text-navy">أحمد خالد</h4>
+                            <p class="text-gray-600 text-sm">الدمام</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"شركات نقل العفش كثيرة ولكن أمازون إكسبريس أثبتوا أنهم الأفضل بخبرتهم التي تزيد عن 15 عامًا. خدمة متكاملة من فك وتركيب وتغليف ونقل آمن. شكراً لكم!"</p>
+                    <div class="flex mt-3 text-gold">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="py-12 md:py-16 bg-navy text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">تواصل معنا الآن للحصول على أفضل خدمة نقل عفش</h2>
+            <p class="text-lg mb-8 max-w-xl mx-auto">فريقنا جاهز للرد على استفساراتكم وتقديم عرض سعر مجاني يناسب احتياجاتكم. اتصل بنا اليوم أو اترك رسالة وسنعاود الاتصال بك في أقرب وقت.</p>
+            <p class="text-2xl md:text-3xl font-bold text-gold mb-4">786821 📞</p>
+            <button class="bg-gold text-navy font-bold text-xl px-8 py-3 rounded-lg hover:bg-yellow-500 transition call-now-btn">اتصل بنا الآن</button>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2024 شركة أمازون إكسبريس لنقل العفش. جميع الحقوق محفوظة.</p>
+            <p>تصميم وتطوير بواسطة فريق أمازون</p>
+        </div>
+    </footer>
+
+    <div id="geminiModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <span class="close-button" id="closeModalButton">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="modalLoading" class="loading-spinner"></div>
+                <div id="modalResults" class="text-right" style="white-space: pre-wrap;"></div>
+                <p id="modalError" class="text-red-500"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="closeModalFooterButton" class="bg-gold text-navy font-bold px-4 py-2 rounded-lg hover:bg-yellow-500 transition">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Mobile Menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const navLinks = mobileMenu.querySelectorAll('a');
+        const callNowButtons = document.querySelectorAll('.call-now-btn');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        callNowButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                window.location.href = 'tel:786821'; 
+            });
+        });
+
+        // Gemini API Integration
+        const geminiModal = document.getElementById('geminiModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalResults = document.getElementById('modalResults');
+        const modalLoading = document.getElementById('modalLoading');
+        const modalError = document.getElementById('modalError');
+        const closeModalButton = document.getElementById('closeModalButton');
+        const closeModalFooterButton = document.getElementById('closeModalFooterButton');
+
+        const packingTipsButton = document.getElementById('getPackingTips');
+        const movingChecklistButton = document.getElementById('getMovingChecklist');
+        
+        const apiKey = ""; // API Key will be injected by the environment if needed for other models
+
+        async function callGeminiAPI(prompt) {
+            modalResults.innerHTML = '';
+            modalError.textContent = '';
+            modalLoading.style.display = 'block';
+            geminiModal.style.display = 'block';
+
+            let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+            const payload = { contents: chatHistory };
+            // Using gemini-2.0-flash model
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('API Error Response:', errorData);
+                    throw new Error(`خطأ في الشبكة: ${response.status} ${response.statusText}. ${errorData.error?.message || ''}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    modalResults.innerHTML = text.replace(/\n/g, '<br>'); // Preserve line breaks
+                } else {
+                    console.error('Unexpected API response structure:', result);
+                    throw new Error('لم يتمكن النموذج من إنشاء رد. حاول مرة أخرى.');
+                }
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                modalError.textContent = `حدث خطأ: ${error.message}`;
+                modalResults.innerHTML = ''; // Clear any partial results
+            } finally {
+                modalLoading.style.display = 'none';
+            }
+        }
+
+        if (packingTipsButton) {
+            packingTipsButton.addEventListener('click', () => {
+                modalTitle.textContent = '✨ نصائح لتغليف أفضل';
+                const prompt = "أنا على وشك الانتقال وأحتاج إلى نصائح لتغليف الأثاث والمقتنيات بشكل آمن. قدم لي نصائح مفصلة وعملية لتغليف العناصر التالية: الأجهزة الإلكترونية الكبيرة (مثل التلفزيون والكمبيوتر)، الأواني الزجاجية والصحون القابلة للكسر، الملابس، الكتب، والمرايا واللوحات الفنية. يرجى تقديم النصائح في شكل قائمة واضحة.";
+                callGeminiAPI(prompt);
+            });
+        }
+
+        if (movingChecklistButton) {
+            movingChecklistButton.addEventListener('click', () => {
+                modalTitle.textContent = '✨ قائمة مهام الانتقال';
+                const prompt = "أنا أخطط للانتقال إلى منزل جديد. أحتاج إلى قائمة مهام شاملة ومنظمة تغطي جميع مراحل الانتقال، بدءًا من شهر قبل الانتقال وحتى يوم الانتقال وبعده. يرجى تقسيم القائمة حسب الفترات الزمنية (مثال: 4 أسابيع قبل الانتقال، أسبوع قبل الانتقال، يوم الانتقال، بعد الانتقال). يجب أن تكون المهام واضحة وقابلة للتنفيذ.";
+                callGeminiAPI(prompt);
+            });
+        }
+        
+        closeModalButton.onclick = () => {
+            geminiModal.style.display = 'none';
+        }
+        closeModalFooterButton.onclick = () => {
+            geminiModal.style.display = 'none';
+        }
+
+        window.onclick = (event) => {
+            if (event.target == geminiModal) {
+                geminiModal.style.display = 'none';
+            }
+        }
+
+    </script>
+</body></html>
